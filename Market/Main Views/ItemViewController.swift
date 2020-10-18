@@ -24,10 +24,57 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("項目名稱：\(item.name)")
+        setupUI()
+        downloadPicture()
+    }
+    
+    // 下載圖片
+    private func downloadPicture() {
+        if item != nil && item.imageLinks != nil {
+            downloadImages(imageUrls: item.imageLinks) { (allImages) in
+                if allImages.count > 0 {
+                    self.itemImages = allImages as! [UIImage]
+                    self.imageCollectionView.reloadData()
+                }
+            }
+        }
     }
     
 
+    //建立 UI
+    private func setupUI() {
+        if item != nil {
+            self.title = item.name
+            nameLabel.text = item.name
+            priceLabel.text = convertToCurrency(item.price)
+            descriptionTextView.text = item.description
+        }
+    }
    
 
+}
+
+
+extension ItemViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if itemImages.count == 0 {
+            return 0
+        } else {
+            return itemImages.count
+        }
+//        return itemImages.count == 0 ? 1 : itemImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImageCollectionViewCell
+        
+        if itemImages.count > 0 {
+            cell.setupImageWith(itemImage: itemImages[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    
 }

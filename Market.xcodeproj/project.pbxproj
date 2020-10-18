@@ -22,6 +22,7 @@
 		E26E2A8625205CF800BE7072 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A8525205CF800BE7072 /* ItemTableViewCell.swift */; };
 		E26E2A89252066FE00BE7072 /* HelperFuncions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A88252066FE00BE7072 /* HelperFuncions.swift */; };
 		E26E2A8C25206EA600BE7072 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A8B25206EA600BE7072 /* ItemViewController.swift */; };
+		E26F7C45253AE4D9006ECA7B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F7C44253AE4D9006ECA7B /* ImageCollectionViewCell.swift */; };
 		E2A751A323ED2098008FFC41 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A751A223ED2098008FFC41 /* CategoryCollectionViewController.swift */; };
 		E2A751A523ED2246008FFC41 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A751A423ED2246008FFC41 /* CategoryCollectionViewCell.swift */; };
 		E2A751A923ED3726008FFC41 /* FirebaseCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A751A823ED3726008FFC41 /* FirebaseCollectionReference.swift */; };
@@ -49,6 +50,7 @@
 		E26E2A8525205CF800BE7072 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		E26E2A88252066FE00BE7072 /* HelperFuncions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFuncions.swift; sourceTree = "<group>"; };
 		E26E2A8B25206EA600BE7072 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		E26F7C44253AE4D9006ECA7B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2A751A223ED2098008FFC41 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		E2A751A423ED2246008FFC41 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2A751A823ED3726008FFC41 /* FirebaseCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionReference.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				E2A751A423ED2246008FFC41 /* CategoryCollectionViewCell.swift */,
 				E26E2A8525205CF800BE7072 /* ItemTableViewCell.swift */,
+				E26F7C44253AE4D9006ECA7B /* ImageCollectionViewCell.swift */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				E26E2A89252066FE00BE7072 /* HelperFuncions.swift in Sources */,
 				E2A751A523ED2246008FFC41 /* CategoryCollectionViewCell.swift in Sources */,
+				E26F7C45253AE4D9006ECA7B /* ImageCollectionViewCell.swift in Sources */,
 				E26E2A8C25206EA600BE7072 /* ItemViewController.swift in Sources */,
 				E261366724FB61BA001DB9EA /* Item.swift in Sources */,
 				E253F29B250CA23500A0CD1E /* Downloader.swift in Sources */,
