@@ -33,3 +33,7 @@ public let kIMAGELINKS = "imageLinks"
 
 
 
+//購物車
+public let kOWNERID = "ownerId"
+public let kITEMIDS = "itemIds"
+
