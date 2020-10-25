@@ -25,14 +25,15 @@ class Basket {
 
 //下載項目
 func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ basket: Basket?) -> Void) {
-    FirebaseReference(.Basket).whereField(ownerId, isEqualTo: ownerId).getDocuments { (snpashot, error) in
-        guard let snapshot = snpashot else {
+    FirebaseReference(.Basket).whereField(kOWNERID, isEqualTo: ownerId).getDocuments { (snapshot, error) in
+        guard let snapshot = snapshot else {
             completion(nil)
             return
         }
         
-        if !snpashot!.isEmpty && (snpashot?.documents.count)! > 0 {
-            let basket = Basket(_dictionary: (snpashot?.documents.first!.data())! as NSDictionary)
+        
+        if !snapshot.isEmpty && (snapshot.documents.count) > 0 {
+            let basket = Basket(_dictionary: snapshot.documents.first!.data() as NSDictionary)
             completion(basket)
         } else {
             completion(nil)
@@ -41,7 +42,7 @@ func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ bas
 }
 
 //儲存到Firebase
-func saveBaskerToFirestore(_ basket: Basket) {
+func saveBasketToFirestore(_ basket: Basket) {
     FirebaseReference(.Basket).document(basket.id).setData(basketDictionaryFrom(basket) as! [String: Any])
     
 }

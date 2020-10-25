@@ -64,7 +64,52 @@ class ItemViewController: UIViewController {
     }
 
     @objc func addToBasketButtonPressed() {
-        print("新增至購物車", item.name)
+        downloadBasketFromFirestore("1234") { (basket) in
+            
+            //確認用戶是否已登入或顯示登入畫面
+            
+            if basket == nil {
+                self.createNewBasket()
+            } else {
+                basket!.itemIds.append(self.item.id)
+                self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
+            }
+        }
+    }
+    
+    //新增到購物車
+    private func createNewBasket() {
+        
+        let newBasket = Basket()
+        newBasket.id = UUID().uuidString
+        newBasket.ownerId = "1234"
+        newBasket.itemIds = [self.item.id]
+        saveBasketToFirestore(newBasket)
+        
+        self.hud.textLabel.text = "新增到購物車"
+        self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        self.hud.show(in: self.view)
+        self.hud.dismiss(afterDelay: 2.0)
+    }
+    
+    private func updateBasket(basket: Basket, withValues: [String: Any]) {
+        
+        updateBasketInFirestore(basket, withValues: withValues) { (error) in
+            
+            if error != nil {
+                self.hud.textLabel.text = "錯誤：\(error!.localizedDescription)"
+                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+                
+                print("更新購物車失敗", error!.localizedDescription)
+            } else {
+                self.hud.textLabel.text = "新增到購物車"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+            }
+        }
     }
 }
 
