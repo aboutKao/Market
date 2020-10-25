@@ -57,7 +57,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     }
     
     
-    //下載category
+    //下載商品類型
     private func loadCategories(){
         downloadCategoriesFromFirebase { (allCategory) in
             print("已獲取",allCategory.count)
