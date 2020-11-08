@@ -20,6 +20,7 @@
 		E254EE8323ED51E300149F05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254EE8223ED51E300149F05 /* Constants.swift */; };
 		E25BFCAA24FBA70400E182CC /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BFCA924FBA70400E182CC /* AddItemViewController.swift */; };
 		E261366724FB61BA001DB9EA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261366624FB61BA001DB9EA /* Item.swift */; };
+		E2672878255784090023342B /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2672877255784090023342B /* BasketViewController.swift */; };
 		E26E2A8625205CF800BE7072 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A8525205CF800BE7072 /* ItemTableViewCell.swift */; };
 		E26E2A89252066FE00BE7072 /* HelperFuncions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A88252066FE00BE7072 /* HelperFuncions.swift */; };
 		E26E2A8C25206EA600BE7072 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A8B25206EA600BE7072 /* ItemViewController.swift */; };
@@ -49,6 +50,7 @@
 		E254EE8223ED51E300149F05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E25BFCA924FBA70400E182CC /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		E261366624FB61BA001DB9EA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E2672877255784090023342B /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		E26E2A8525205CF800BE7072 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		E26E2A88252066FE00BE7072 /* HelperFuncions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFuncions.swift; sourceTree = "<group>"; };
 		E26E2A8B25206EA600BE7072 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				E25BFCA924FBA70400E182CC /* AddItemViewController.swift */,
 				E2A751A223ED2098008FFC41 /* CategoryCollectionViewController.swift */,
 				E26E2A8B25206EA600BE7072 /* ItemViewController.swift */,
+				E2672877255784090023342B /* BasketViewController.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2672878255784090023342B /* BasketViewController.swift in Sources */,
 				E26E2A89252066FE00BE7072 /* HelperFuncions.swift in Sources */,
 				E2A751A523ED2246008FFC41 /* CategoryCollectionViewCell.swift in Sources */,
 				E26F7C45253AE4D9006ECA7B /* ImageCollectionViewCell.swift in Sources */,

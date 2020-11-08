@@ -34,7 +34,7 @@
         <!--購物車-->
         <scene sceneID="Nbf-lb-EWq">
             <objects>
-                <viewController id="zyb-qR-QKr" sceneMemberID="viewController">
+                <viewController id="zyb-qR-QKr" customClass="BasketViewController" customModule="Market" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hXE-MC-l6e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,6 +153,9 @@
                                 <state key="normal" title="確認">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkOutBtnPressed:" destination="zyb-qR-QKr" eventType="touchUpInside" id="79W-JX-6YY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5D6-5R-9Pl"/>
@@ -173,6 +176,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="購物車" id="xRJ-6a-h80"/>
+                    <connections>
+                        <outlet property="basketTotalPriceLab" destination="Hrw-hz-Jpy" id="qqg-Zs-OW7"/>
+                        <outlet property="checkOutBtn" destination="IyE-kw-WRw" id="07h-IF-mc1"/>
+                        <outlet property="footerView" destination="mYi-s9-gUa" id="J7U-dW-S2p"/>
+                        <outlet property="tableView" destination="sac-vB-Ijk" id="XYx-uZ-gw1"/>
+                        <outlet property="totalItemLab" destination="TgI-j1-A5g" id="441-39-ZjG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyI-bv-IlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

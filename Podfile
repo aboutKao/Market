@@ -15,6 +15,7 @@ pod 'EmptyDataSet-Swift'
 pod 'NVActivityIndicatorView/AppExtension'
 pod 'JGProgressHUD'
 pod 'PayPal-iOS-SDK'
+pod 'SnapKit'
 
   # Pods for Market
 

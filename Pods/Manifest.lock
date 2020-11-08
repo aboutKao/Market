@@ -296,6 +296,7 @@ PODS:
     - CardIO (~> 5.4.1)
   - PayPal-iOS-SDK/Core (2.18.1)
   - PromisesObjC (1.2.8)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - EmptyDataSet-Swift
@@ -308,6 +309,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - NVActivityIndicatorView/AppExtension
   - PayPal-iOS-SDK
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -341,6 +343,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PayPal-iOS-SDK
     - PromisesObjC
+    - SnapKit
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -373,7 +376,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 871fe92f065049fb3eeecec07b237be3f7ecb6ed
+PODFILE CHECKSUM: f63aae17ae5908d7e926ebbc3a8462ead56aefca
 
 COCOAPODS: 1.8.4

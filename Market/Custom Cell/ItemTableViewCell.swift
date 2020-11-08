@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ItemTableViewCell: UITableViewCell {
 
@@ -14,9 +15,12 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    var width = UIScreen.main.bounds.width
+    var height = UIScreen.main.bounds.height
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
         
     }
 
@@ -24,8 +28,32 @@ class ItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func setupUI() {
+        self.addSubview(itemImageView)
+        itemImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top).offset(width * 0.03)
+            make.left.equalTo(self.snp.left).offset(width * 0.05)
+            make.width.equalTo(width * 0.4)
+            make.height.equalTo(width * 0.3)
+        }
+        self.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top).offset(width * 0.04)
+            make.left.equalTo(itemImageView.snp.right).offset(width * 0.02)
+            make.width.equalTo(width * 0.5)
+            make.height.equalTo(width * 0.05)
+        }
+        self.addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(nameLabel.snp.bottom).offset(width * 0.01)
+            make.left.equalTo(nameLabel.snp.left)
+            make.width.equalTo(width * 0.5)
+            make.height.equalTo(width * 0.05)
+        }
+    }
 
-    func gernerateCell(_ item: Item) {
+    func generateCell(_ item: Item) {
         nameLabel.text = item.name
         descriptionLabel.text = item.description
         priceLabel.text = convertToCurrency(item.price)
