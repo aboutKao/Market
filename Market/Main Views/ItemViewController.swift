@@ -74,6 +74,8 @@ class ItemViewController: UIViewController {
                 basket!.itemIds.append(self.item.id)
                 self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
             }
+            
+            
         }
     }
     

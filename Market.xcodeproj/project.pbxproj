@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0060476C84917AFAD1772953 /* Pods_Market.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A05798DD40745D6C5CEF6A4 /* Pods_Market.framework */; };
+		4BB48BB52560CFC300ABFB95 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */; };
 		E203ED7E25456DFB004D92CC /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203ED7D25456DFB004D92CC /* Basket.swift */; };
 		E253F299250CA1F500A0CD1E /* Richabitily.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253F298250CA1F500A0CD1E /* Richabitily.swift */; };
 		E253F29B250CA23500A0CD1E /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253F29A250CA23500A0CD1E /* Downloader.swift */; };
@@ -29,11 +30,11 @@
 		E2A751A523ED2246008FFC41 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A751A423ED2246008FFC41 /* CategoryCollectionViewCell.swift */; };
 		E2A751A923ED3726008FFC41 /* FirebaseCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A751A823ED3726008FFC41 /* FirebaseCollectionReference.swift */; };
 		E2CB5A1E23F10E3F0036381E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2CB5A1D23F10E3F0036381E /* GoogleService-Info.plist */; };
-		E2CB5A2423F25DB00036381E /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB5A2323F25DB00036381E /* ItemsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CFA442FD0A1795817F1DE39 /* Pods-Market.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market.debug.xcconfig"; path = "Target Support Files/Pods-Market/Pods-Market.debug.xcconfig"; sourceTree = "<group>"; };
+		4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		8A05798DD40745D6C5CEF6A4 /* Pods_Market.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EB88C53FB5E04727097E0A /* Pods-Market.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market.release.xcconfig"; path = "Target Support Files/Pods-Market/Pods-Market.release.xcconfig"; sourceTree = "<group>"; };
 		E203ED7D25456DFB004D92CC /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		E2A751A823ED3726008FFC41 /* FirebaseCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionReference.swift; sourceTree = "<group>"; };
 		E2CB5A1D23F10E3F0036381E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2CB5A2023F14A010036381E /* TaipeiSansTCBeta-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TaipeiSansTCBeta-Bold.ttf"; sourceTree = "<group>"; };
-		E2CB5A2323F25DB00036381E /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemsTableViewController.swift; path = "/Users/macintosh/Desktop/forfun/Market/Market/Main Views/ItemsTableViewController.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,11 +144,11 @@
 		E254EE7D23ED4B8400149F05 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
-				E2CB5A2323F25DB00036381E /* ItemsTableViewController.swift */,
 				E25BFCA924FBA70400E182CC /* AddItemViewController.swift */,
 				E2A751A223ED2098008FFC41 /* CategoryCollectionViewController.swift */,
 				E26E2A8B25206EA600BE7072 /* ItemViewController.swift */,
 				E2672877255784090023342B /* BasketViewController.swift */,
+				4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 				E253F299250CA1F500A0CD1E /* Richabitily.swift in Sources */,
 				E254AB0323ED083A00B8496A /* AppDelegate.swift in Sources */,
 				E203ED7E25456DFB004D92CC /* Basket.swift in Sources */,
-				E2CB5A2423F25DB00036381E /* ItemsTableViewController.swift in Sources */,
+				4BB48BB52560CFC300ABFB95 /* ItemTableViewController.swift in Sources */,
 				E26E2A8625205CF800BE7072 /* ItemTableViewCell.swift in Sources */,
 				E2A751A923ED3726008FFC41 /* FirebaseCollectionReference.swift in Sources */,
 				E25BFCAA24FBA70400E182CC /* AddItemViewController.swift in Sources */,
