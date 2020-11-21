@@ -182,7 +182,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         cell.generateCell(allItems[indexPath.row])
         print("印", cell.generateCell(allItems[indexPath.row]))
         print("印數量", indexPath.row)
-        return UITableViewCell()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

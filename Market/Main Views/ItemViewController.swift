@@ -31,9 +31,9 @@ class ItemViewController: UIViewController {
         downloadPicture()
         
         //左itemBarBtn
-        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(self.backAction))]
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "back")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(self.backAction))]
         //右itemBarBtn
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "basket"), style: .plain, target: self, action: #selector(self.addToBasketButtonPressed))]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "basket")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(self.addToBasketButtonPressed))]
     }
     
     // 下載圖片
@@ -64,19 +64,21 @@ class ItemViewController: UIViewController {
     }
 
     @objc func addToBasketButtonPressed() {
-        downloadBasketFromFirestore("1234") { (basket) in
-            
-            //確認用戶是否已登入或顯示登入畫面
-            
-            if basket == nil {
-                self.createNewBasket()
-            } else {
-                basket!.itemIds.append(self.item.id)
-                self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
-            }
-            
-            
-        }
+        
+        //確認用戶是否已登入或顯示登入畫面
+
+//        downloadBasketFromFirestore("1234") { (basket) in
+//
+//            if basket == nil {
+//                self.createNewBasket()
+//            } else {
+//                basket!.itemIds.append(self.item.id)
+//                self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
+//            }
+//
+//        }
+        
+        showLoginView()
     }
     
     //新增到購物車
@@ -112,6 +114,12 @@ class ItemViewController: UIViewController {
                 self.hud.dismiss(afterDelay: 2.0)
             }
         }
+    }
+    
+    func showLoginView() {
+        let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+        self.present(loginView, animated: true, completion: nil)
+        
     }
 }
 
