@@ -39,8 +39,15 @@ class BasketViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //判斷使用者是否登入
-        loadBasketFromFirestore()
+        
+        if MUser.currentUser() != nil {
+            //判斷使用者是否登入
+            loadBasketFromFirestore()
+        } else {
+            self.updateTotalLabels(true)
+        }
+        
+       
         
         if basket?.itemIds != nil {
             tableView.isHidden = false
@@ -67,14 +74,20 @@ class BasketViewController: UIViewController {
             
         }
         
-        
-        
-        
-        
-        
     }
     
     @IBAction func checkOutBtnPressed(_ sender: Any) {
+        
+        if MUser.currentUser()!.onBoard {
+            tempFunction()
+            addItemsToPurchaseHistory(self.purchasedItemIds)
+            emptyTheBasket()
+        } else {
+            self.hud.textLabel.text = "請申辦會員"
+            self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+            self.hud.show(in: self.view)
+            self.hud.dismiss(afterDelay: 2.0)
+        }
         
     }
     
@@ -91,7 +104,7 @@ class BasketViewController: UIViewController {
     
     //下載購物車
     private func loadBasketFromFirestore() {
-        downloadBasketFromFirestore("1234") { (basket) in
+        downloadBasketFromFirestore(MUser.currentId()) { (basket) in
             self.basket = basket
             self.getBasketItem()
         }
@@ -108,6 +121,14 @@ class BasketViewController: UIViewController {
             }
         } else {
             self.updateTotalLabels(true)
+        }
+    }
+    
+    //Helper functions
+    
+    func tempFunction() {
+        for item in allItems {
+            purchasedItemIds.append(item.id)
         }
     }
     
@@ -133,6 +154,31 @@ class BasketViewController: UIViewController {
         }
         //轉換貨幣
         return "總計：" + convertToCurrency(totalPrice)
+    }
+    
+    private func emptyTheBasket() {
+        purchasedItemIds.removeAll()
+        allItems.removeAll()
+        tableView.reloadData()
+        basket!.itemIds = []
+        updateBasketInFirestore(basket!, withValues: [kITEMIDS: basket!.itemIds]) { (error) in
+            if error != nil {
+                print("更新購物車失敗\(error!.localizedDescription)")
+            }
+            
+            self.getBasketItem()
+        }
+    }
+    
+    private func addItemsToPurchaseHistory(_ itemIds: [String]) {
+        if MUser.currentUser() != nil {
+            let newItemIds = MUser.currentUser()!.purchasedItemIds + itemIds
+            updateCurrentUserInFirestore(withValues: [kPURCHASEDITEMIDS : newItemIds]) { (error) in
+                if error != nil {
+                    print("添加購買商品失敗\(error!.localizedDescription)")
+                }
+            }
+        }
     }
     
     //Navigation
@@ -181,7 +227,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
         cell.generateCell(allItems[indexPath.row])
         print("印", cell.generateCell(allItems[indexPath.row]))
-        print("印數量", indexPath.row)
+        print("印購買數量", indexPath.row)
         return cell
     }
     

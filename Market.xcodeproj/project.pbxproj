@@ -11,6 +11,11 @@
 		4B15B3F72568B0DD00C7705B /* WelecomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15B3F62568B0DD00C7705B /* WelecomeViewController.swift */; };
 		4B15B3FA2568B9A800C7705B /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15B3F92568B9A800C7705B /* MUser.swift */; };
 		4B15B3FD2569084C00C7705B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15B3FC2569084C00C7705B /* ProfileTableViewController.swift */; };
+		4B5E21682571EBCF005FB444 /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5E21672571EBCF005FB444 /* FinishRegistrationViewController.swift */; };
+		4B61953B2572182700646528 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61953A2572182700646528 /* EditProfileViewController.swift */; };
+		4B61953E2572284D00646528 /* PurchasedHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61953D2572284D00646528 /* PurchasedHistoryTableViewController.swift */; };
+		4B61954125726CE800646528 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61954025726CE800646528 /* SearchViewController.swift */; };
+		4B6195442572971B00646528 /* AlogoliaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6195432572971B00646528 /* AlogoliaService.swift */; };
 		4BB48BB52560CFC300ABFB95 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */; };
 		E203ED7E25456DFB004D92CC /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203ED7D25456DFB004D92CC /* Basket.swift */; };
 		E253F299250CA1F500A0CD1E /* Richabitily.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253F298250CA1F500A0CD1E /* Richabitily.swift */; };
@@ -40,6 +45,11 @@
 		4B15B3F62568B0DD00C7705B /* WelecomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelecomeViewController.swift; sourceTree = "<group>"; };
 		4B15B3F92568B9A800C7705B /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		4B15B3FC2569084C00C7705B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		4B5E21672571EBCF005FB444 /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
+		4B61953A2572182700646528 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		4B61953D2572284D00646528 /* PurchasedHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedHistoryTableViewController.swift; sourceTree = "<group>"; };
+		4B61954025726CE800646528 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4B6195432572971B00646528 /* AlogoliaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlogoliaService.swift; sourceTree = "<group>"; };
 		4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		8A05798DD40745D6C5CEF6A4 /* Pods_Market.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EB88C53FB5E04727097E0A /* Pods-Market.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market.release.xcconfig"; path = "Target Support Files/Pods-Market/Pods-Market.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +97,15 @@
 				8A05798DD40745D6C5CEF6A4 /* Pods_Market.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B5E216A2571EBE2005FB444 /* Login View */ = {
+			isa = PBXGroup;
+			children = (
+				4B15B3F62568B0DD00C7705B /* WelecomeViewController.swift */,
+				4B5E21672571EBCF005FB444 /* FinishRegistrationViewController.swift */,
+			);
+			name = "Login View";
 			sourceTree = "<group>";
 		};
 		A307DD3C0F691CE62D00F050 /* Pods */ = {
@@ -155,8 +174,11 @@
 				E26E2A8B25206EA600BE7072 /* ItemViewController.swift */,
 				E2672877255784090023342B /* BasketViewController.swift */,
 				4BB48BB42560CFC300ABFB95 /* ItemTableViewController.swift */,
-				4B15B3F62568B0DD00C7705B /* WelecomeViewController.swift */,
+				4B61954025726CE800646528 /* SearchViewController.swift */,
+				4B5E216A2571EBE2005FB444 /* Login View */,
 				4B15B3FC2569084C00C7705B /* ProfileTableViewController.swift */,
+				4B61953A2572182700646528 /* EditProfileViewController.swift */,
+				4B61953D2572284D00646528 /* PurchasedHistoryTableViewController.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -178,6 +200,7 @@
 				E261366624FB61BA001DB9EA /* Item.swift */,
 				E203ED7D25456DFB004D92CC /* Basket.swift */,
 				4B15B3F92568B9A800C7705B /* MUser.swift */,
+				4B6195432572971B00646528 /* AlogoliaService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,19 +325,24 @@
 				E2672878255784090023342B /* BasketViewController.swift in Sources */,
 				E26E2A89252066FE00BE7072 /* HelperFuncions.swift in Sources */,
 				E2A751A523ED2246008FFC41 /* CategoryCollectionViewCell.swift in Sources */,
+				4B5E21682571EBCF005FB444 /* FinishRegistrationViewController.swift in Sources */,
 				E26F7C45253AE4D9006ECA7B /* ImageCollectionViewCell.swift in Sources */,
 				E26E2A8C25206EA600BE7072 /* ItemViewController.swift in Sources */,
 				E261366724FB61BA001DB9EA /* Item.swift in Sources */,
 				E253F29B250CA23500A0CD1E /* Downloader.swift in Sources */,
 				E253F299250CA1F500A0CD1E /* Richabitily.swift in Sources */,
+				4B61953B2572182700646528 /* EditProfileViewController.swift in Sources */,
 				E254AB0323ED083A00B8496A /* AppDelegate.swift in Sources */,
+				4B61953E2572284D00646528 /* PurchasedHistoryTableViewController.swift in Sources */,
 				4B15B3F72568B0DD00C7705B /* WelecomeViewController.swift in Sources */,
 				E203ED7E25456DFB004D92CC /* Basket.swift in Sources */,
+				4B61954125726CE800646528 /* SearchViewController.swift in Sources */,
 				4BB48BB52560CFC300ABFB95 /* ItemTableViewController.swift in Sources */,
 				E26E2A8625205CF800BE7072 /* ItemTableViewCell.swift in Sources */,
 				E2A751A923ED3726008FFC41 /* FirebaseCollectionReference.swift in Sources */,
 				E25BFCAA24FBA70400E182CC /* AddItemViewController.swift in Sources */,
 				E254AB0523ED083A00B8496A /* SceneDelegate.swift in Sources */,
+				4B6195442572971B00646528 /* AlogoliaService.swift in Sources */,
 				E254EE8323ED51E300149F05 /* Constants.swift in Sources */,
 				E2A751A323ED2098008FFC41 /* CategoryCollectionViewController.swift in Sources */,
 				4B15B3FA2568B9A800C7705B /* MUser.swift in Sources */,

@@ -82,7 +82,7 @@ class WelecomeViewController: UIViewController {
     }
     @IBAction func resendEmailBtnAction(_ sender: Any) {
         print("重新發送")
-        MUsure.resendVerificationonEmail(email: emailTextField.text!) { (error) in
+        MUser.resendVerificationonEmail(email: emailTextField.text!) { (error) in
             print("發送email錯誤", error?.localizedDescription)
         }
         
@@ -91,7 +91,7 @@ class WelecomeViewController: UIViewController {
     //會員登入
     private func loginUser() {
         showLoadingIdicator()
-        MUsure.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
+        MUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
             
             if error == nil {
                 if isEmailVerified {
@@ -119,7 +119,7 @@ class WelecomeViewController: UIViewController {
     //user註冊
     private func registerUser() {
         showLoadingIdicator()
-        MUsure.registerUserWithWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+        MUser.registerUserWithWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
             if error == nil {
                 self.hud.textLabel.text = "驗證email已發送"
                 self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
@@ -140,7 +140,7 @@ class WelecomeViewController: UIViewController {
     //Helpers
     
     private func resetThePassword() {
-        MUsure.resetPasswordFor(email: emailTextField.text!) { (error) in
+        MUser.resetPasswordFor(email: emailTextField.text!) { (error) in
             if error == nil {
                 self.hud.textLabel.text = "密碼已發送至email"
                 self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()

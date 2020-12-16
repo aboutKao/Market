@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-class MUsure {
+class MUser {
     let objectId: String
     var email: String
     var firstName: String
@@ -79,10 +79,10 @@ class MUsure {
         return Auth.auth().currentUser!.uid
     }
     
-    class func currentUser() -> MUsure? {
+    class func currentUser() -> MUser? {
         if Auth.auth().currentUser != nil {
             if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
-                return MUsure.init(_dictionary: dictionary as! NSDictionary)
+                return MUser.init(_dictionary: dictionary as! NSDictionary)
             }
         }
         return nil
@@ -138,7 +138,21 @@ class MUsure {
                                             
 
     }
-}
+    
+    class func logOutCurrentUser(completion: @escaping(_ error: Error?) -> Void) {
+        do {
+           try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: kCURRENTUSER)
+            UserDefaults.standard.synchronize()
+            completion(nil)
+            
+        } catch let error as NSError {
+            completion(error)
+        }
+        
+    }
+    
+}//class結束
 
 //下載User
 func downloadUserFromFirestore(userId: String, email: String) {
@@ -149,7 +163,7 @@ func downloadUserFromFirestore(userId: String, email: String) {
             saveUserLocally(mUserDictionary: snapshot.data()! as NSDictionary)
         } else {
             //儲存新的使用者
-            let user = MUsure(_objectId: userId, _email: email, _firstName: "", _lastName: "")
+            let user = MUser(_objectId: userId, _email: email, _firstName: "", _lastName: "")
             saveUserLocally(mUserDictionary: userDictionaryFrom(user: user))
             saveUserToFirestore(mUser: user)
             
@@ -161,7 +175,7 @@ func downloadUserFromFirestore(userId: String, email: String) {
 
 
 //儲存user到firebase
-func saveUserToFirestore(mUser: MUsure) {
+func saveUserToFirestore(mUser: MUser) {
     FirebaseReference(.User).document(mUser.objectId).setData(userDictionaryFrom(user: mUser) as! [String : Any]) { (error) in
         if error != nil {
             print("儲存用戶失敗",error!.localizedDescription)
@@ -177,7 +191,23 @@ func saveUserLocally(mUserDictionary: NSDictionary) {
 
 // Helper
 
-func userDictionaryFrom(user: MUsure) -> NSDictionary {
+func userDictionaryFrom(user: MUser) -> NSDictionary {
     
     return NSDictionary(objects: [user.objectId,user.email, user.firstName, user.lastName, user.fullName, user.fullAddress ?? "", user.onBoard, user.purchasedItemIds], forKeys: [kOBJECTID as NSCopying, kEMAIL as NSCopying, kFIRSTNAME as NSCopying, kLASTNAME as NSCopying, kFULLNAME as NSCopying, kFULLADDRESS as NSCopying, kONBOARD as NSCopying, kPURCHASEDITEMIDS as NSCopying,])
+}
+
+//更新使用者
+
+func updateCurrentUserInFirestore(withValues: [String: Any], completion: @escaping(_ error: Error?) -> Void) {
+    
+    if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
+        let userObject = (dictionary as! NSDictionary).mutableCopy() as! NSMutableDictionary
+        userObject.setValuesForKeys(withValues)
+        FirebaseReference(.User).document(MUser.currentId()).updateData(withValues) { (error) in
+            completion(error)
+            if error == nil {
+                saveUserLocally(mUserDictionary: userObject)
+            }
+        }
+    }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import InstantSearchClient
 
 class Item {
     var id: String!
@@ -92,3 +93,42 @@ func downloadItems(_ withIds: [String], completion: @escaping (_ itemArray: [Ite
         completion(itemArray)
     }
 }
+
+
+//Algolia Funcs
+
+func saveItemToAlgolia(item: Item) {
+    let index = AlgoliaService.shared.index
+    let itemToSave = itemDictionaryFrom(item) as! [String: Any]
+    index.addObject(itemToSave, withID: item.id, requestOptions: nil) { (content, error) in
+        
+        if error != nil {
+            print("儲存到algolia失敗\(error!.localizedDescription)")
+        } else {
+            print("加入到algolia")
+        }
+    }
+}
+
+func searchAlgolia(searchString: String, completion: @escaping(_ itemArray: [String]) -> Void) {
+    
+    let index = AlgoliaService.shared.index
+    var resultIds: [String] = []
+    let query = Query(query: searchString)
+    query.attributesToRetrieve = ["name", "description"]
+    index.search(query) { (content, error) in
+        if error == nil {
+            let cont = content!["hits"] as! [[String: Any]]
+            resultIds = []
+            
+            for result in cont {
+                resultIds.append(result["objectID"] as! String)
+            }
+            completion(resultIds)
+        } else {
+            print("從algolia 搜尋失敗\(error!.localizedDescription)")
+            completion(resultIds)
+        }
+    }
+}
+

@@ -8,8 +8,11 @@
 
 import Foundation
 
-//IDS and KeyS
+//IDS and Keys
 public let kFILEREFERENCE = "gs://market-24970.appspot.com"
+public let KALGFOLIA_APP_ID = "KS4BVVXP8O"
+public let KALGOIA_SEARCH_KEY = "f2baa2da307c3ebf5d7c97fdb92e21e9"
+public let KALGOIA_ADMIN_KEY = "8e4059dc8eedcd731d2040f187a3c71e"
 
 //Firebase Haders 大寫為文件夾
 public let kUSER_PATH = "User"

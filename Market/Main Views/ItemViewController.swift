@@ -67,18 +67,21 @@ class ItemViewController: UIViewController {
         
         //確認用戶是否已登入或顯示登入畫面
 
-//        downloadBasketFromFirestore("1234") { (basket) in
-//
-//            if basket == nil {
-//                self.createNewBasket()
-//            } else {
-//                basket!.itemIds.append(self.item.id)
-//                self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
-//            }
-//
-//        }
+        if MUser.currentUser() != nil {
+            downloadBasketFromFirestore(MUser.currentId()) { (basket) in
+                
+                if basket == nil {
+                    self.createNewBasket()
+                } else {
+                    basket!.itemIds.append(self.item.id)
+                    self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket!.itemIds])
+                }
+            }
+           
+        } else {
+            showLoginView()
+        }
         
-        showLoginView()
     }
     
     //新增到購物車
@@ -86,7 +89,7 @@ class ItemViewController: UIViewController {
         
         let newBasket = Basket()
         newBasket.id = UUID().uuidString
-        newBasket.ownerId = "1234"
+        newBasket.ownerId = MUser.currentId()
         newBasket.itemIds = [self.item.id]
         saveBasketToFirestore(newBasket)
         

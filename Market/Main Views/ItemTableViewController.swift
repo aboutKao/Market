@@ -5,6 +5,7 @@
 //  Created by Kao on 2020/2/11.
 //
 import UIKit
+import EmptyDataSet_Swift
 
 class ItemsTableViewController: UITableViewController {
 
@@ -17,6 +18,9 @@ class ItemsTableViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         self.title = category?.name
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
     
     }
     
@@ -76,4 +80,19 @@ class ItemsTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension ItemsTableViewController: EmptyDataSetSource, EmptyDataSetDelegate {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "此分類尚未上架商品")
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "emptydata")
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "敬請期待未來有更多商品")
+    }
 }
